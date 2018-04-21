@@ -1,1 +1,108 @@
-Does my site need HTTPS?
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Моему сайту нужен HTTPS?</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta property="og:locale" content="en-us">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Does my site need HTTPS?">
+		<meta property="og:description" content="Find out if your site needs HTTPS.">
+		<meta property="og:url" content="/">
+		<meta property="og:site_name" content="Caddy">
+		<meta property="article:publisher" content="https://doesmysiteneedhttps.com">
+		<meta property="article:tag" content="https">
+		<meta property="article:tag" content="infosec">
+		<meta property="article:tag" content="tls">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Does my site need HTTPS?">
+		<meta name="twitter:description" content="Find out if your site needs HTTPS.">
+		<meta name="twitter:creator" content="@mholt6">
+		<meta itemprop="name" content="Does my site need HTTPS?">
+		<meta itemprop="description" content="Find out if your site needs HTTPS.">
+		
+		<script src="script.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=cyrillic" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1>
+			ДА
+			<div class="subtitle">
+				Твоему сайту нужен HTTPS.
+			</div>
+		</h1>
+
+		<h2>"Но на моем сайте не происходит сбора пользовательской информации и нет форм"</h2>
+		<p>
+			Это не имеет значения. HTTPS защищает не только данные из форм! HTTPS делает все адреса, заголовки, и содержимое загруженных страниц <b>конфиденциальными</b>.
+		</p>
+
+		<h2>"В любом случае, на моем сайте нет ничего важного"</h2>
+		<p>
+			Ваш сайт это ваша ответственность! Использование HTTPS позволит защитить трафик ваших пользователей от появления рекламы, <a href="https://vc.ru/35975-tele2-stal-pokazyvat-polzovatelyam-mobilnogo-interneta-svoi-bannery-poverh-chuzhih-saytov">которую могут внедрять недобросовестные провайдеры</a>или от <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%9E%D0%A0%D0%9C">прослушивания со стороны государства</a>.
+		</p>
+
+		<h2>"Я не могу позволить себе HTTPS"</h2>
+		<p>
+			<a href="https://letsencrypt.org">Это бесплатно.</a>
+		</p>
+
+		<h2>"HTTPS сложно настроить и поддерживать"</h2>
+		<p>
+			Не сложно! Используйте веб-сервер <a href="https://caddyserver.com">Caddy</a>, он автоматически выпустит и будет продлевать сертификат для вашего сайта. Для других случаев используйте <a href="https://letsencrypt.org/docs/client-options/">автоматизированный клиент Let's Encrypt</a>. Никаких особых технических знаний не потребуется.
+		</p>
+
+		<h2>"HTTPS это медленно."</h2>
+		<p>
+			<a href="https://istlsfastyet.com/">Нет, это не так.</a> Сайты на современных веб-серверах загружаются быстрее через HTTPS, чем без, благодаря HTTP/2.
+		</p>
+
+		<h2>"Сайт отлично работает на HTTP."</h2>
+		<p>
+			В последнее время <a href="https://habrahabr.ru/company/globalsign/blog/349428/">браузеры помечают такие сайты</a> как небезопасные.
+		</p>
+
+		<h2>"Мой сайт доступен только внутри страны или через VPN"</h2>
+		<p>
+			Насколько вы доверяете своему <a href="https://www.securitylab.ru/news/488966.php">VPN провайдеру</a>? А компание производящей сетевое оборудование?
+		</p>
+
+		<h2>"Мы шифруем пароли."</h2>
+		<p>
+			Это хорошо. Но это не поможет при <a href="https://ru.wikipedia.org/wiki/%D0%90%D1%82%D0%B0%D0%BA%D0%B0_%D0%BF%D0%BE%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA%D0%B0">атаке "человек по середине" (mitm)</a> если сайт будет работать на http и злоумышленики смогут перехватить пароли или их хеши.
+		</p>
+
+		<h2>"HTTPS влияет на SEO."</h2>
+		<p>
+			Вы правы&mdash;HTTPS улучшает SEO показатели! Неправильный переход с HTTP на HTTPS <b>может</b> повлиять на ранжирование, но это не отменяет того что <a href="https://support.google.com/webmasters/answer/6073543?hl=ru">поисковые системы рекомендуют использовать https</a>. Просто настройте редирект правильным образом в соответствие с правилами поисковой системы и все будет хорошо.
+		</p>
+
+		<h2>"Это обязанность брайзера, обеспечивать безопасность пользователей."</h2>
+		<p>
+			Правда, но не совсем. Это <b>НЕ ТОЛЬКО</b> обязанность браузера. Браузер может обеспечивать безопасное соединение только в случае если веб-сайт работает по протоколу HTTPS. И вы, как владелец сайта, должны обеспечить безопасность пользоватлеей.
+		</p>
+
+		<h2>&mdash; КАК НАЧАТЬ ИСПОЛЬЗОВАТЬ HTTPS &mdash;</h2>
+		<p>
+			Самый простой способ это <a href="https://letsencrypt.org">Let's Encrypt</a> или <a href="https://caddyserver.com">веб-сервер Caddy</a>, они автоматически включат HTTPS для всех ваших сайтов. Вы так же можете использовать простой кроссплатформенный автоматизированный клиент Let's Encrypt под названием <a href="https://github.com/xenolf/lego">lego</a>.
+		</p>
+		<p>
+			Если вам требуется больше возможностей при настройки и интеграция с другими веб-серверами используйте, EFF's клиент <a href="https://certbot.eff.org/">Certbot</a>.
+		</p>
+		<p>
+			Есть так же множество других способов подключить HTTPS без особых проблем. Например, используя CDN сервис <a href="https://www.cloudflare.com/ssl/">Cloudflare</a>.
+		</p>
+
+		<footer>
+			&copy; 2018 DoesMySiteNeedHTTPS.ru
+		</footer>
+	</body>
+</html>
+
+<!--
+Кому нужен HTTPS:
+	- всем
+-->
