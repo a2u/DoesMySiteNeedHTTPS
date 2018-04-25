@@ -12,6 +12,25 @@ body {
 	padding: 0 40px;
 }
 
+a {
+    color: rgba(0,0,0,0.2);
+    font-weight: 700;
+    text-shadow: none;
+}
+ 
+a::before {
+    color: #fff;
+    content: attr(data-hover);
+    position: absolute;
+    transition: transform 0.3s, opacity 0.3s;
+}
+ 
+a:hover::before,
+a:focus::before {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
 h1 {
 	color: #000;
 	font-size: 120px;
